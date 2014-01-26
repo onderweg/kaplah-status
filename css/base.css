@@ -55,6 +55,53 @@ a {
 
 }
 
+/* Flat Buttons */
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 8px 19px;
+  font-size: 17px;
+  line-height: 1.471;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: none;
+  color: white;
+}
+
+button:hover, button:focus {
+  outline: none;
+  color: #ffffff;
+}
+
+button.default {
+  background-color: #bdc3c7;
+}
+button.default:hover {
+  background-color: #cacfd2;
+  border-color: #cacfd2;  
+}
+
+button.green { background-color: #2ecc71;}
+button.green:hover { background-color: #58d68d; border-color: #58d68d;}
+
+button.primary {
+  color: #ffffff;
+  background-color: #1abc9c;
+  border: 1px solid transparent;
+}
+button.primary:hover {
+  background-color: #48c9b0;
+  border-color: #48c9b0;  
+}
+
+
+/* Main containers */
+
 .wrapper {
   margin: 50px auto 40px auto;
   max-width: 900px; 
