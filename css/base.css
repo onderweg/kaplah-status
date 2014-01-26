@@ -51,8 +51,12 @@ h2 {
   color:#000;
 }
 
-a {
+h1 a {
+  text-decoration: none;
+}
 
+a {
+  color: inherit;
 }
 
 /* Flat Buttons */
