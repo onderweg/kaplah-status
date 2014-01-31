@@ -1,19 +1,28 @@
-$( document ).ready(function() {
+// alternative to DOMContentLoaded
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        
+		request = new XMLHttpRequest;
+		request.open('GET', 'status.json', true);
+		request.send();
 
-	$.ajax({
-	  dataType: "json",
-	  url: 'status.json',
-	}).then(function(data) {
+		request.onload = function() {
+			data = JSON.parse(request.responseText);
 
-		$('#status')
-		  .addClass(data.status)
-		  .attr('data-status', data.status)
-		  .html('<p>' + data.text + '</p>');
+			var el = document.querySelector('#status');
+			if (el.classList)
+			  el.classList.add(data.status);
+			else
+			  el.className += ' ' + data.status;
 
-	}, function(x) {
+			el.setAttribute('data-satus', data.status);
 
-		alert('Status error occured');
+			el.innerHTML = '<p>' + data.text + '</p>';
+		};
 
-	});
+		request.onerror = function() {
+			alert('Status error occured');
+		}
 
-});
+    }
+}
