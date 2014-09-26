@@ -125,18 +125,21 @@ button.primary:hover {
   text-shadow: 0 1px 0 rgba(0,0,0,0.1);
   margin-bottom: 70px;
   padding: .75rem 1.25rem;
+  color: black;
 }
 
-.status.green {
+.status.good {
   background-color: #2fcc66;
   color: white;
 }
 
 .status.critical {
+  color: white;
   background-color: #e74c3c;
 }
 
 .status.minor {
+  color: white;
   background: #f1c40f;
 }
 

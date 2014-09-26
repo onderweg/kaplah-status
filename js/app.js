@@ -6,10 +6,15 @@ document.onreadystatechange = function () {
 		request.open('GET', 'status.json', true);
 		request.send();
 
-		request.onload = function() {
-			data = JSON.parse(request.responseText);
+		var el = document.querySelector('#status');
 
-			var el = document.querySelector('#status');
+		request.onload = function() {
+			try {
+				data = JSON.parse(request.responseText);
+			} catch (e) {
+				showError(e);
+			}
+			
 			if (el.classList)
 			  el.classList.add(data.status);
 			else
@@ -21,7 +26,11 @@ document.onreadystatechange = function () {
 		};
 
 		request.onerror = function() {
-			alert('Status error occured');
+			showError('Can\'t retrieve status');
+		}
+
+		function showError(err) {			
+			el.innerHTML = '<p>' + err + '</p>';
 		}
 
     }
